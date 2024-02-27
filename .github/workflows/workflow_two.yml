@@ -17,8 +17,13 @@ jobs:
   download_context_artifact:
     runs-on: ubuntu-latest
     steps:
+      - name: 'List artifacts'
+        run: |
+          echo "Listing artifacts"
+          ls -la
+
       - name: 'Download artifact'
         uses: actions/download-artifact@v3
         with:
-          name: context 
+          name: context
           path: .
