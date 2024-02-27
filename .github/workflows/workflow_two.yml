@@ -22,16 +22,7 @@ jobs:
           echo "Listing artifacts"
           ls -la
 
-      - name: 'Check artifact presence'
-        run: |
-          if [ -f "context/context.json" ]; then
-            echo "Artifact found!"
-          else
-            echo "Artifact not found."
-          fi
-
       - name: 'Download artifact'
         uses: actions/download-artifact@v3
         with:
           name: context
-          path: .
