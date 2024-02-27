@@ -21,7 +21,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: context
-          path: .
+          path: context.json
 
   log_context_values:
     needs:
