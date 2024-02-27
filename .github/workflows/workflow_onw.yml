@@ -1,26 +1,12 @@
-name: Workflow A
+stages:
+  - build
 
-on:
-  push:
-    branches: [ "main" ]
-
-jobs:
-  some_job:  
-    runs-on: ubuntu-latest
-    steps:
-      - name: Some Step 
-        run: echo "Hello!"
-
-  job_producing_data:  
-    runs-on: ubuntu-latest
-    steps:
-      - name: Some Step 
-        run: |
-            printf '{ 
-              "prop_1": "Some value",  
-              "prop_2": true
-            }' >> context.json
-      - uses: actions/upload-artifact@v3
-        with:
-          name: context.json
-          path: ./
+job_build:
+  stage: build
+  script:
+    - # Your build commands here
+    - # Generate JSON artifact
+    - echo '{"key": "value", "another_key": "another_value"}' > artifacts/data.json
+  artifacts:
+    paths:
+      - artifacts/
