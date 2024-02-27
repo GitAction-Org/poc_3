@@ -20,14 +20,5 @@ jobs:
       - name: 'Download artifact'
         uses: actions/download-artifact@v3
         with:
-          name: context
-          path: context.json
-
-  log_context_values:
-    needs:
-      - download_context_artifact
-    runs-on: ubuntu-latest
-    steps:
-      - name: 'Log Context Values'
-        run: |
-          echo "$(cat context.json)"
+          name: context 
+          path: .
